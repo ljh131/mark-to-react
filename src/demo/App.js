@@ -7,17 +7,38 @@ import Markdown from '../lib';
 
 import './index.css';
 
-const DEFAULT_TEXT = `{toc}                          
-# hello parser!                                  
-* first                                          
-* second **bold ~~and strike~~** plain           
- * nested                                        
-  1. deeply *nested*                             
-  1. and ordered                                 
-## try _this!_                                   
-\`\`\`javascript                                 
-console.log("hello parser!");                    
-\`\`\``;                                         
+const DEFAULT_TEXT = `
+# default text here!
+`;
+
+class Toc extends React.Component {
+  render() {
+    return (
+      <div className='Toc' id='toc'>
+        <div>
+          <Typography gutterBottom align="left">
+            Table of Content
+          </Typography>
+        </div>
+        { this.props.children }
+      </div>
+    );
+  }
+}
+
+class TocItem extends React.Component {
+  render() {
+    const INDENT_UNIT = 10;
+    const indent = (this.props.level - 1) * INDENT_UNIT + 'px';
+
+    return (
+      <div className='Toc-item' style={{marginLeft: indent}}>
+        {this.props.number}
+        <a href={`#`}> {this.props.children}</a>
+      </div>
+    );
+  }
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -54,7 +75,8 @@ class App extends React.Component {
           <div className="Demo-output-markdown">
             <Markdown 
               className="Markdown"
-              text={this.state.text}/>
+              text={this.state.text}
+							replace={{'toc': Toc, 'toc-item': TocItem}} />
           </div>
         </div>
       </div>
