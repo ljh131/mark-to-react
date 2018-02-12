@@ -1,7 +1,22 @@
 {
-  "name": "create-react-library",
-  "version": "1.1.0",
-  "description": "React NPM library starter kit based on Facebook's create react app",
+  "name": "mark-to-react",
+  "version": "0.0.1",
+  "description": "Render markdown to React",
+  "keywords": [
+    "react",
+    "markdown",
+    "text processing",
+    "jsonml"
+  ],
+  "author": {
+    "name": "ljh131",
+    "email": "ljh131@gmail.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ljh131/mark-to-react.git"
+  },
   "main": "build/index.js",
   "scripts": {
     "build-css": "node-sass-chokidar src/demo -o src/demo",
@@ -12,16 +27,6 @@
     "demo": "npm run build-css && node scripts/demo.js",
     "test": "react-scripts test --env=jsdom"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DimitriMikadze/create-react-library.git"
-  },
-  "author": "Dimitri Mikadze <dimitrimikadze@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/DimitriMikadze/create-react-library/issues"
-  },
-  "homepage": "https://github.com/DimitriMikadze/create-react-library#readme",
-  "license": "MIT",
   "dependencies": {
     "mark-to-jsonml": "^0.1.0",
     "material-ui": "^1.0.0-beta.33",
