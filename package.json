@@ -4,10 +4,13 @@
   "description": "React NPM library starter kit based on Facebook's create react app",
   "main": "build/index.js",
   "scripts": {
-    "start": "node scripts/start.js",
+    "build-css": "node-sass-chokidar src/demo -o src/demo",
+    "watch-css": "npm run build-css && node-sass-chokidar src/demo -o src/demo --watch --recursive",
+    "start-js": "node scripts/start.js",
+    "start": "npm-run-all -p watch-css start-js",
     "build": "node scripts/build.js",
-    "demo": "node scripts/demo.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "demo": "npm run build-css && node scripts/demo.js",
+    "test": "react-scripts test --env=jsdom"
   },
   "repository": {
     "type": "git",
@@ -21,9 +24,11 @@
   "license": "MIT",
   "dependencies": {
     "mark-to-jsonml": "^0.1.0",
+    "material-ui": "^1.0.0-beta.33",
     "ramda": "^0.25.0",
     "react-syntax-highlighter": "^7.0.0",
-    "shortid": "^2.2.8"
+    "shortid": "^2.2.8",
+    "typeface-roboto": "0.0.54"
   },
   "devDependencies": {
     "autoprefixer": "7.1.6",
@@ -50,6 +55,8 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.2",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",

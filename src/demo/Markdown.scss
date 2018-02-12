@@ -1,0 +1,131 @@
+.Markdown {
+  color: #212121;
+
+  .Toc {
+    display: inline-block;
+    border: 1px solid #eaeaea;
+    padding: 20px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .DocHeading {
+    position: relative;
+    max-width: 100%;
+
+    .DocHeading-Title {
+      display: inline-block;
+      max-width: calc(100% - 80px);
+
+      .DocHeading-Title-num {
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .DocHeading-edit_button {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      height: 36px;
+      margin-left: 6px;
+      margin-top: -18px; 
+    }
+  }
+
+  h1,h2 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eaecef;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 500;
+  }
+  
+  h2 {
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  h3 {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #eaecef;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  ol,ul {
+    padding-left: 25px;
+  }
+
+  blockquote {
+    border-left: 5px solid #eee;
+    padding-left: 20px;
+    margin: 30px;
+  }
+
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+
+    thead {
+      background-color: #f6f8fa;
+
+      td {
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+
+    tr {
+    }
+
+    td {
+      padding: 10px 15px;
+      border: 1px solid #dfe2e5;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  video {
+    max-width: 100%;
+  }
+
+  pre {
+    padding: 15px;
+    overflow-x: auto;
+
+    &.md-code-simple {
+      background-color: #F5F5F5;
+    }
+
+    code {
+      &.md-code-simple {
+        background-color: #F5F5F5;
+      }
+
+      line-height: 1.3;
+    }
+  }
+
+  code {
+    font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+
+    &.md-inlinecode {
+      background-color: #F5F5F5;
+    }
+  }
+}
+

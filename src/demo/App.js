@@ -1,5 +1,11 @@
 import React from 'react';
+import Reboot from 'material-ui/Reboot';
+import Input from 'material-ui/Input';
+import Typography from 'material-ui/Typography';
+
 import Markdown from '../lib';
+
+import './index.css';
 
 const DEFAULT_TEXT = `{toc}                          
 # hello parser!                                  
@@ -21,15 +27,35 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <span>MARKDOWN TEXT:</span>
-          <input type="text" value={this.state.text} onChange={this.handleChangeText}/>
+      <div className="Demo">
+        <Reboot />
+        <div className="Demo-head">
+          <Typography variant="headline" gutterBottom>
+            mark-to-react Live Demo
+          </Typography>
+        </div>
+        <div className="Demo-input">
+          <Typography variant="title" gutterBottom>
+            MARKDOWN TEXT:
+          </Typography>
+          <Input 
+            className="Demo-input-text"
+            multiline={true}
+            fullWidth={true}
+            type="text" 
+            value={this.state.text} 
+            onChange={this.handleChangeText}/>
         </div>
 
-        <div>
-          <span>RENDERED:</span>
-          <Markdown text={this.state.text}/>
+        <div className="Demo-output">
+          <Typography variant="title" gutterBottom>
+            RENDERED:
+          </Typography>
+          <div className="Demo-output-markdown">
+            <Markdown 
+              className="Markdown"
+              text={this.state.text}/>
+          </div>
         </div>
       </div>
     );

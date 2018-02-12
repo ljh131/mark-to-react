@@ -65,19 +65,14 @@ R.forEachObjIndexed((v, k) => registerLanguage(k, v), langs);
 
 class Markdown extends Component {
   render() {
-    var refs = [];
+    const refs = [];
 
-    for (var refName in this.props.references) {
-      var ref = this.props.references[refName];
+    for (let refName in this.props.references) {
+      const ref = this.props.references[refName];
       refs.push(<p key={ generate() } id={ refName }>[{ refName }] { ref.href }</p>);
     }
 
-    return (
-      <div>
-        { this.props.children }
-        { refs }
-      </div>
-    );
+    return [ this.props.children, refs ];
   }
 }
 

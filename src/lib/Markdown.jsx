@@ -53,10 +53,14 @@ export class Markdown extends React.Component {
       return null;
     }
 
-    console.log('text', this.props.text);
-    console.log('parsed', elements);
+    //console.log('text', this.props.text);
+    //console.log('parsed', elements);
 
-    return this.componentLoop(elements);
+    return (
+      <div className={this.props.className}>
+        {this.componentLoop(elements)}
+      </div>
+    );
   }
 
   componentLoop = (elements) => {
