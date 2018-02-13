@@ -25,7 +25,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "node scripts/build.js",
     "demo": "npm run build-css && node scripts/demo.js",
-    "test": "react-scripts test --env=jsdom"
+    "test": "react-scripts test --env=jsdom",
+    "prepublish": "npm run build && npm run demo"
   },
   "dependencies": {
     "mark-to-jsonml": "^0.1.0",
