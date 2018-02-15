@@ -26,7 +26,7 @@
     "demo": "npm run build-css && node scripts/demo.js",
     "publish-demo": "git push origin :gh-pages || git subtree push --prefix demo origin gh-pages",
     "test": "react-scripts test --env=jsdom",
-    "prepublish": "npm run build && npm run demo && npm publish-demo"
+    "prepublish": "npm run build && npm run demo && npm run publish-demo"
   },
   "dependencies": {
     "mark-to-jsonml": "^0.1.0",
