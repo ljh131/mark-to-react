@@ -1,6 +1,6 @@
 {
   "name": "mark-to-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Render markdown to React",
   "keywords": [
     "react",
@@ -26,7 +26,7 @@
     "demo": "npm run build-css && node scripts/demo.js",
     "publish-demo": "git push origin :gh-pages || git subtree push --prefix demo origin gh-pages",
     "test": "react-scripts test --env=jsdom",
-    "prepublish": "npm run build && npm run demo"
+    "prepublish": "npm run build && npm run demo && npm publish-demo"
   },
   "dependencies": {
     "mark-to-jsonml": "^0.1.0",
