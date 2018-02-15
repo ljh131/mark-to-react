@@ -4,7 +4,7 @@ import { Parser } from 'mark-to-jsonml';
 
 import * as Components from './components';
 
-const MARKDOWN_COMPONENT_MAP = {
+const DEFAULT_COMPONENT_MAP = {
   'markdown': Components.Markdown,
   'h': Components.H,
   'hr': Components.Hr,
@@ -56,6 +56,8 @@ export class Markdown extends React.Component {
     //console.log('text', this.props.text);
     //console.log('parsed', elements);
 
+    this.seq = 0;
+
     return (
       <div className={this.props.className}>
         {this.componentLoop(elements)}
@@ -85,19 +87,20 @@ export class Markdown extends React.Component {
       }
     });
 
-    return this.findComponent(name, args, children);
+    return this.findComponent(name, args, children, this.seq++);
   };
 
-  findComponent = (name, args, children) => {
+  findComponent = (name, args, children, seq) => {
     //console.log('begin findComponent', name, args, children);
 
-    const replace = this.props.replace || {};
-    const replaceProps = this.props.replaceProps || {};
+    const componentMap = this.props.componentMap || {};
+    const componentProps = this.props.componentProps || {};
 
-    const el = replace[name] || MARKDOWN_COMPONENT_MAP[name] || Components.P;
+    const el = componentMap[name] || DEFAULT_COMPONENT_MAP[name] || Components.P;
     if(!el) return null;
+    const props = componentProps[name] || {};
 
-    const elProps = Object.assign({}, args, { key: 'r' + Math.random(), target: args.ref }, replaceProps);
+    const elProps = Object.assign({}, args, { key: 'md' + seq }, props);
     return React.createElement(el, elProps, children);
   };
 
