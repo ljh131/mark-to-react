@@ -11,7 +11,7 @@ Fully customizable markdown component in React
 
 # Installation
 ```sh
-npm install mark-to-jsonml --save
+npm install mark-to-react --save
 ```
 
 # Usage example
@@ -97,4 +97,3 @@ https://github.com/ljh131/mark-to-react/blob/master/src/demo/App.js
   * For example, `{'hr': MyHr}` will mapping `hr` markdown element to `MyHr` React component.
 * componentProps {Object}: Object mapped markdown elements to React props.
   * For example, If it is set to `{'hr': {...props}}` and corresponding `hr` React component will receive those properties. 
-
