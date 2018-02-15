@@ -4,7 +4,7 @@ Fully customizable markdown component in React
 * Supports most common markdown specs and other extensions
 * Easy to make custom markdown syntax and component
 
-**It uses [mark-to-jsonml](https://github.com/ljh131/mark-to-jsonml) as an internal parser.**
+**Note: It uses [mark-to-jsonml](https://github.com/ljh131/mark-to-jsonml) as an internal parser.**
 
 # Live Demo
 [Click Here](https://ljh131.github.io/mark-to-react/)
