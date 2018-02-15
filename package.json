@@ -24,7 +24,7 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "node scripts/build.js",
     "demo": "npm run build-css && node scripts/demo.js",
-    "publish-demo": "git push origin :gh-pages || git subtree push --prefix demo origin gh-pages",
+    "publish-demo": "git push origin :gh-pages; git subtree push --prefix demo origin gh-pages",
     "test": "react-scripts test --env=jsdom",
     "prepublish": "npm run build && npm run demo && npm run publish-demo"
   },
