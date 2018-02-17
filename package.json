@@ -1,6 +1,6 @@
 {
   "name": "mark-to-react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Render markdown to React",
   "keywords": [
     "react",
@@ -23,18 +23,15 @@
     "start-js": "node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
     "build": "node scripts/build.js",
-    "demo": "npm run build-css && node scripts/demo.js",
+    "build-demo": "npm run build-css && node scripts/demo.js",
     "publish-demo": "git push origin :gh-pages; git subtree push --prefix demo origin gh-pages",
     "test": "react-scripts test --env=jsdom",
-    "prepublish": "npm run build && npm run demo && npm run publish-demo"
+    "prepublishOnly": "npm run build && npm run build-demo && npm run publish-demo"
   },
   "dependencies": {
     "mark-to-jsonml": "^0.1.0",
-    "material-ui": "^1.0.0-beta.33",
     "ramda": "^0.25.0",
-    "react-syntax-highlighter": "^7.0.0",
-    "shortid": "^2.2.8",
-    "typeface-roboto": "0.0.54"
+    "react-syntax-highlighter": "^7.0.0"
   },
   "devDependencies": {
     "autoprefixer": "7.1.6",
@@ -61,6 +58,7 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "material-ui": "^1.0.0-beta.33",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
     "object-assign": "4.1.1",
@@ -68,11 +66,12 @@
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
     "raf": "3.4.0",
-    "react": "^16.2.0",
+    "react": "^0.14",
+    "react-dom": "^0.14",
     "react-dev-utils": "^4.2.1",
-    "react-dom": "^16.2.0",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
+    "typeface-roboto": "0.0.54",
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",

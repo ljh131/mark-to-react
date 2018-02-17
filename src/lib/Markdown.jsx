@@ -36,7 +36,7 @@ const DEFAULT_COMPONENT_MAP = {
 
 const parser = new Parser({ parseToc: true });   
 
-export class Markdown extends React.Component {
+class Markdown extends React.Component {
   constructor(props) {
     super();
   }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { generate } from 'shortid';
 import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/dist/light';
 import tomorrowNightEighties from 'react-syntax-highlighter/styles/hljs/tomorrow-night-eighties'; 
 import * as R from 'ramda';
@@ -66,13 +65,19 @@ R.forEachObjIndexed((v, k) => registerLanguage(k, v), langs);
 class Markdown extends Component {
   render() {
     const refs = [];
+    let seq = 0;
 
     for (let refName in this.props.references) {
       const ref = this.props.references[refName];
-      refs.push(<p key={ generate() } id={ refName }>[{ refName }] { ref.href }</p>);
+      refs.push(<p key={ `ref${seq++}` } id={ refName }>[{ refName }] { ref.href }</p>);
     }
 
-    return [ this.props.children, refs ];
+    return (
+      <div>
+        {this.props.children}
+        {refs}
+      </div>
+    );
   }
 }
 
