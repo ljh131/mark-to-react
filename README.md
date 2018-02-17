@@ -36,7 +36,7 @@ class App extends React.Component {
 ```
 
 ## Add custom syntax and component
-On the example below, Custom `Horizontal Ruler` markdown syntax and component are added.
+On the example below, `@@@` is added for `custom horizontal ruler` syntax and corresponding component is also added.
 
 ``` javascript
 import React from 'react';
@@ -86,7 +86,7 @@ class App extends React.Component {
 ```
 
 ## More example
-https://github.com/ljh131/mark-to-react/blob/master/src/demo/App.js
+https://github.com/ljh131/mark-to-react/tree/master/src/demo
 
 # API
 ## Component: Markdown
