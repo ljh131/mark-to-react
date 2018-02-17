@@ -7,11 +7,16 @@ import { FormLabel, FormControl, FormControlLabel } from 'material-ui/Form';
 
 import { Parser, makeTestResult } from 'mark-to-jsonml';
 import Markdown from '../lib';
+import { A, Codeblock, Toc, TocItem } from './CustomMarkdown';
 
 import './index.css';
 
 const DEFAULT_TEXT = `
-*WARNING: Following Table of content will be available only in custom render mode*
+**NOTE:** Belows are enabled only in the *custom render* mode (select in the Renderer option):
+* Table of content
+* Auto link
+* Auto Image from url
+* Syntax highlight
 
 {toc}
 
@@ -65,12 +70,11 @@ console.log(foo(5));
     * *Url is used as a title in this case*
 
 > Url ends with image extension will be rendered as an image!
-> **If you don't like this behavior, you can override it!**
 https://octodex.github.com/images/minion.png
 
 *Note that this rule also applied on mp4 :)*
 
-# Custom renderer
+# Custom markdown syntax
 
 The belows are added as a custom syntax. So, those will be rendered as something customized component *only in custom renderer*
 
@@ -100,35 +104,6 @@ class MyHr extends React.Component {
     return (
       <div style={{border: '1px solid #000'}}>
         I WANNA BE a HORIZONTAL RULER! {prop1} {prop2}
-      </div>
-    );
-  }
-}
-
-class Toc extends React.Component {
-  render() {
-    return (
-      <div className='Toc' id='toc'>
-        <div>
-          <Typography gutterBottom align="left">
-            Table of Content
-          </Typography>
-        </div>
-        { this.props.children }
-      </div>
-    );
-  }
-}
-
-class TocItem extends React.Component {
-  render() {
-    const INDENT_UNIT = 10;
-    const indent = (this.props.level - 1) * INDENT_UNIT + 'px';
-
-    return (
-      <div className='Toc-item' style={{marginLeft: indent}}>
-        {this.props.number}
-        <a href={`#`}> {this.props.children}</a>
       </div>
     );
   }
@@ -197,13 +172,24 @@ class App extends React.Component {
   }
 
   renderCustom = () => {
-    const parsed = customParser.parse(this.state.text);           
+    const parsed = customParser.parse(this.state.text);
+    const componentMap = {
+      'a': A, 
+      'codeblock': Codeblock,
+      'toc': Toc, 
+      'toc-item': TocItem, 
+      'my_hr': MyHr
+    };
+    const componentProps = {
+      'my_hr': {prop1: 'wow', prop2: '!!!'}
+    };
+
     return (
       <Markdown 
         className="Markdown"
         parsed={parsed}
-        componentMap={{'toc': Toc, 'toc-item': TocItem, 'my_hr': MyHr}} 
-        componentProps={{'my_hr': {prop1: 'wow', prop2: '!!!'}}} />
+        componentMap={componentMap} 
+        componentProps={componentProps} />
     );
   }
 

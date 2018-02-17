@@ -20,8 +20,6 @@ const DEFAULT_COMPONENT_MAP = {
   'u': Components.Underline,
   'a': Components.A,
 
-  'img': Components.Img,
-  'video': Components.Video,
   'blockquote': Components.Blockquote,
   'codeblock': Components.Codeblock,
   'code': Components.Inlinecode,
@@ -32,9 +30,12 @@ const DEFAULT_COMPONENT_MAP = {
   'tr': Components.Tr,
   'th': Components.Th,
   'td': Components.Td,
+
+  'toc': Components.Toc,
+  'toc-item': Components.TocItem,
 };
 
-const parser = new Parser({ parseToc: true });   
+const parser = new Parser();   
 
 class Markdown extends React.Component {
   constructor(props) {

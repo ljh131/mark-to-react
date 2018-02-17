@@ -17,6 +17,7 @@
     "url": "https://github.com/ljh131/mark-to-react.git"
   },
   "main": "build/index.js",
+  "files": ["build"],
   "scripts": {
     "build-css": "node-sass-chokidar src/demo -o src/demo",
     "watch-css": "npm run build-css && node-sass-chokidar src/demo -o src/demo --watch --recursive",
@@ -29,9 +30,7 @@
     "prepublishOnly": "npm run build && npm run build-demo && npm run publish-demo"
   },
   "dependencies": {
-    "mark-to-jsonml": "^0.1.0",
-    "ramda": "^0.25.0",
-    "react-syntax-highlighter": "^7.0.0"
+    "mark-to-jsonml": "^0.1.0"
   },
   "devDependencies": {
     "autoprefixer": "7.1.6",

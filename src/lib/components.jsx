@@ -1,66 +1,4 @@
 import React, { Component } from 'react';
-import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/dist/light';
-import tomorrowNightEighties from 'react-syntax-highlighter/styles/hljs/tomorrow-night-eighties'; 
-import * as R from 'ramda';
-
-import cpp from 'react-syntax-highlighter/dist/languages/hljs/cpp';
-import java from 'react-syntax-highlighter/dist/languages/hljs/java';
-import javascript from 'react-syntax-highlighter/dist/languages/hljs/javascript';
-import coffeescript from 'react-syntax-highlighter/dist/languages/hljs/coffeescript';
-import typescript from 'react-syntax-highlighter/dist/languages/hljs/typescript';
-import kotlin from 'react-syntax-highlighter/dist/languages/hljs/kotlin';
-import swift from 'react-syntax-highlighter/dist/languages/hljs/swift';
-import go from 'react-syntax-highlighter/dist/languages/hljs/go';
-
-import perl from 'react-syntax-highlighter/dist/languages/hljs/perl';
-import php from 'react-syntax-highlighter/dist/languages/hljs/php';
-import python from 'react-syntax-highlighter/dist/languages/hljs/python';
-import ruby from 'react-syntax-highlighter/dist/languages/hljs/ruby';
-import scala from 'react-syntax-highlighter/dist/languages/hljs/scala';
-import smalltalk from 'react-syntax-highlighter/dist/languages/hljs/smalltalk';
-import r from 'react-syntax-highlighter/dist/languages/hljs/r';
-
-import makefile from 'react-syntax-highlighter/dist/languages/hljs/makefile';
-import json from 'react-syntax-highlighter/dist/languages/hljs/json';
-import sql from 'react-syntax-highlighter/dist/languages/hljs/sql';
-import xml from 'react-syntax-highlighter/dist/languages/hljs/xml';
-import vim from 'react-syntax-highlighter/dist/languages/hljs/vim';
-import css from 'react-syntax-highlighter/dist/languages/hljs/css';
-
-import bash from 'react-syntax-highlighter/dist/languages/hljs/bash';
-import powershell from 'react-syntax-highlighter/dist/languages/hljs/powershell';
-import markdown from 'react-syntax-highlighter/dist/languages/hljs/markdown';
-import nginx from 'react-syntax-highlighter/dist/languages/hljs/nginx';
-
-const langs = {
-  'cpp': cpp, 
-  'java': java, 
-  'javascript': javascript, 
-  'coffeescript': coffeescript, 
-  'typescript': typescript, 
-  'kotlin': kotlin,
-  'swift': swift,
-  'go': go,
-  'perl': perl,
-  'php': php,
-  'python': python,
-  'ruby': ruby,
-  'scala': scala,
-  'smalltalk': smalltalk,
-  'r': r,
-  'makefile': makefile,
-  'json': json,
-  'sql': sql,
-  'xml': xml,
-  'vim': vim,
-  'css': css,
-  'bash': bash,
-  'powershell': powershell,
-  'markdown': markdown,
-  'nginx': nginx
-}
-
-R.forEachObjIndexed((v, k) => registerLanguage(k, v), langs);
 
 class Markdown extends Component {
   render() {
@@ -151,41 +89,11 @@ class Strong extends Component {
 class A extends Component {
   render() {
     const url = this.props.src || this.props.href;
-
-    if(/\.(bmp|png|jpg|jpeg|tiff|gif)$/.test(url)) {
-      return (
-        <a target='_blank' href={url}>
-          <img src={url} alt={this.props.alt || url} />
-        </a>
-      );
-    } else if(/\.(mp4|ogg)$/.test(url)) { 
-      return (
-        <video src={url} controls />
-      );
-    } else {
-      return (
-        <a target='_blank' href={url}>
-          {this.props.children}
-        </a>
-      );
-    }
-  }
-}
-
-class Img extends Component {
-  render() {
-    const src = this.props.src || this.props.href;
     return (
-      <a target='_blank' href={src}>
-        <img src={src} alt={this.props.alt} />
+      <a href={url}>
+        {this.props.children}
       </a>
     );
-  }
-}
-
-class Video extends Component {
-  render() {
-    return <video src={ this.props.src } controls />;
   }
 }
 
@@ -197,24 +105,11 @@ class Blockquote extends Component {
 
 class Codeblock extends Component {
   render() {
-    if(!!this.props.lang) {
-      return (
-        <SyntaxHighlighter 
-          language={this.props.lang || ''} 
-          style={tomorrowNightEighties} 
-          customStyle={{padding: '15px'}}
-          lineNumberContainerStyle={{float: 'left', paddingRight: '20px'}}
-          showLineNumbers >
-          {this.props.children[0]}
-        </SyntaxHighlighter>
-      );
-    } else {
-      return (
-        <pre className='md-code-simple'>
-          <code className='md-code-simple'>{ this.props.children }</code>
-        </pre>
-      );
-    }
+    return (
+      <pre className='md-code-simple'>
+        <code className='md-code-simple'>{ this.props.children }</code>
+      </pre>
+    );
   }
 }
 
@@ -262,10 +157,18 @@ class Td extends Component {
 
 class Toc extends Component {
   render() {
-    return <div>{ this.props.children }</div>;
+    return <div>
+      <p>Table of Content</p>
+      { this.props.children }
+    </div>;
   }
 }
 
+class TocItem extends Component {
+  render() {
+    return <p>{ this.props.children }</p>;
+  }
+}
 
 export { 
   Markdown,    
@@ -284,8 +187,6 @@ export {
   Underline,
   A,
                                       
-  Img,
-  Video,
   Blockquote,
   Codeblock,
   Inlinecode,
@@ -296,6 +197,7 @@ export {
   Tr,
   Th,
   Td,
-                                      
+
   Toc,
+  TocItem
 };
