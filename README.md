@@ -4,7 +4,10 @@ Fully customizable markdown component in React
 * Supports most common markdown specs and other extensions
 * Easy to make custom markdown syntax and component
 
-**Note: It uses [mark-to-jsonml](https://github.com/ljh131/mark-to-jsonml) as an internal parser.**
+## Another mark-to-*
+
+* [mark-to-jsonml](https://github.com/ljh131/mark-to-jsonml)
+* [mark-to-react](https://github.com/ljh131/mark-to-react)
 
 # Live Demo
 [Click Here](https://ljh131.github.io/mark-to-react/)
@@ -37,6 +40,8 @@ class App extends React.Component {
 
 ## Add custom syntax and component
 On the example below, `@@@` is added for `custom horizontal ruler` syntax and corresponding component is also added.
+
+Note that `mark-to-jsonml` is used as a markdown parser.
 
 ``` javascript
 import React from 'react';

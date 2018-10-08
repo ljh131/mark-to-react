@@ -1,7 +1,7 @@
 {
   "name": "mark-to-react",
   "version": "0.1.0",
-  "description": "Render markdown to React",
+  "description": "Fully customizable markdown component in React",
   "keywords": [
     "react",
     "markdown",
