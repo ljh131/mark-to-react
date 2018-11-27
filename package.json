@@ -23,7 +23,7 @@
   "scripts": {
     "build-css": "node-sass-chokidar src/demo -o src/demo",
     "watch-css": "npm run build-css && node-sass-chokidar src/demo -o src/demo --watch --recursive",
-    "start-js": "node scripts/start.js",
+    "start-js": "export PORT=3001; node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
     "build": "node scripts/build.js",
     "build-demo": "npm run build-css && node scripts/demo.js",
