@@ -12,7 +12,7 @@ import { A, Codeblock, Toc, TocItem } from './CustomMarkdown';
 import './index.css';
 
 const DEFAULT_TEXT = `
-# **Introducing fully customizable markdown component in React!**
+**Introducing fully customizable markdown component in React!**
 
 **NOTE:** Belows are enabled only in the *custom render* mode (So, you need to choose custom in the Renderer option to see everything):
 
