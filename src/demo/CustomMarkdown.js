@@ -37,7 +37,7 @@ import nginx from 'react-syntax-highlighter/dist/languages/hljs/nginx';
 const langs = {
   'cpp': cpp, 
   'java': java, 
-  'javascript': javascript, 
+  'js': javascript, 
   'coffeescript': coffeescript, 
   'typescript': typescript, 
   'kotlin': kotlin,
@@ -90,7 +90,7 @@ class A extends Component {
 
 class Codeblock extends Component {
   render() {
-    if(!!this.props.lang) {
+    if(this.props.lang) {
       return (
         <SyntaxHighlighter 
           language={this.props.lang || ''} 

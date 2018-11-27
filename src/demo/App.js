@@ -12,7 +12,10 @@ import { A, Codeblock, Toc, TocItem } from './CustomMarkdown';
 import './index.css';
 
 const DEFAULT_TEXT = `
-**NOTE:** Belows are enabled only in the *custom render* mode (select in the Renderer option):
+# **Introducing fully customizable markdown component in React!**
+
+**NOTE:** Belows are enabled only in the *custom render* mode (So, you need to choose custom in the Renderer option to see everything):
+
 * Table of content
 * Auto link
 * Auto Image from url
@@ -57,7 +60,7 @@ console.log(foo(5));
 | engine | **engine to be used for processing templates. Handlebars is the default.** |
 | ext    | ~extension to be used for dest files.~ |
 
-## What if i didn't specify a header?
+## What if I didn't specify a header?
 | Head1 | Head2 |
 | Content1 | Content2 |
 | Content1 | Content2 |
@@ -111,7 +114,7 @@ class MyHr extends React.Component {
 
 class App extends React.Component {
   state = {
-    renderer: 'custom',
+    renderer: 'default',
     text: DEFAULT_TEXT
   };
 

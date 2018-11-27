@@ -39,9 +39,9 @@ class App extends React.Component {
 ```
 
 ## Add custom syntax and component
-On the example below, `@@@` is added for `custom horizontal ruler` syntax and corresponding component is also added.
+On the example below, syntax `@@@` and corresponding component are added for `custom horizontal ruler`.
 
-Note that `mark-to-jsonml` is used as a markdown parser.
+For more information about custom syntax parser, take a look at [mark-to-jsonml](https://github.com/ljh131/mark-to-jsonml)
 
 ``` javascript
 import React from 'react';
@@ -53,29 +53,30 @@ const md = `
 @@@
 `;
 
-const customParser = new Parser();
-                                                      
+const customParser = new Parser({ parseToc: true });
+
 function parseMyHr(string, isTest) {
-  var HR = /^(@){3,}$/gm;                             
-  var result = HR.exec(string);                       
-                                                      
-  // you should return test result on test mode.      
-  if(isTest) return makeTestResult(HR, result, -1);   
-  if(!result) return null;                            
-                                                      
-  return ['my_hr'];                                   
-}                                                     
-                                                      
-customParser.addBlockParser(parseMyHr, true);      
-                                                      
-class MyHr extends React.Component {                  
-  render() {                                          
-    return (                                          
-      <div style={{border: '1px solid #000'}}>        
-        I WANNA BE a HORIZONTAL RULER!
-      </div>                                          
-    );                                                
-  }                                                   
+  var HR = /^(@){3,}$/gm;
+  var result = HR.exec(string);
+
+  // you should return test result on test mode.
+  if(isTest) return makeTestResult(HR, result, -1);
+  if(!result) return null;
+
+  return ['my_hr'];
+}
+
+customParser.addBlockParser(parseMyHr, true);
+
+class MyHr extends React.Component {
+  render() {
+    const { prop1, prop2 } = this.props;
+    return (
+      <div style={{border: '1px solid #000'}}>
+        I WANNA BE a HORIZONTAL RULER! {prop1} {prop2}
+      </div>
+    );
+  }
 }
 
 class App extends React.Component {
@@ -101,4 +102,5 @@ https://github.com/ljh131/mark-to-react/tree/master/src/demo
 * componentMap {Object}: Object mapped markdown elements to React component.
   * For example, `{'hr': MyHr}` will mapping `hr` markdown element to `MyHr` React component.
 * componentProps {Object}: Object mapped markdown elements to React props.
-  * For example, If it is set to `{'hr': {...props}}` and corresponding `hr` React component will receive those properties. 
+  * For example, if it is set to `{'hr': {...props}}` and corresponding `hr` React component will receive those properties. 
+
