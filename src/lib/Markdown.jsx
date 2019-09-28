@@ -8,6 +8,7 @@ const DEFAULT_COMPONENT_MAP = {
   'markdown': Components.Markdown,
   'h': Components.H,
   'hr': Components.Hr,
+  'br': Components.Br,
   'p': Components.P,
 
   'ul': Components.Ul,

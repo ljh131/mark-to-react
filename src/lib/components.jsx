@@ -37,6 +37,12 @@ class P extends Component {
   }
 }
 
+class Br extends Component {
+  render() {
+    return <br/>;
+  }
+}
+
 class Span extends Component {
   render() {
     return <span>{ this.props.children }</span>;
@@ -174,6 +180,7 @@ export {
   Markdown,    
   H,
   Hr,
+  Br,
   P,
   Span,
                                       
