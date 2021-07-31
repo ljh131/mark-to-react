@@ -1,13 +1,15 @@
 import React from 'react';
-import Reboot from 'material-ui/Reboot';
-import Input from 'material-ui/Input';
-import Typography from 'material-ui/Typography';
-import Radio, { RadioGroup } from 'material-ui/Radio';
-import { FormLabel, FormControl, FormControlLabel } from 'material-ui/Form';
+import Input from '@material-ui/core/Input';
+import Typography from '@material-ui/core/Typography';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-import { Parser, makeTestResult } from 'mark-to-jsonml';
+import {Parser, makeTestResult} from 'mark-to-jsonml';
 import Markdown from '../lib';
-import { A, Codeblock, Toc, TocItem } from './CustomMarkdown';
+import {A, Codeblock, Toc, TocItem} from './CustomMarkdown';
 
 import './index.css';
 
@@ -86,24 +88,24 @@ The belows are added as a custom syntax. So, those will be rendered as something
 @@@@
 `;
 
-const customParser = new Parser({ parseToc: true });   
+const customParser = new Parser({parseToc: true});
 
 function parseMyHr(string, isTest) {
   var HR = /^(@){3,}$/gm;
   var result = HR.exec(string);
 
   // you should return test result on test mode.
-  if(isTest) return makeTestResult(HR, result, -1);
-  if(!result) return null;
+  if (isTest) return makeTestResult(HR, result, -1);
+  if (!result) return null;
 
   return ['my_hr'];
 }
 
-customParser.addBlockParser(parseMyHr, true); 
+customParser.addBlockParser(parseMyHr, true);
 
 class MyHr extends React.Component {
   render() {
-    const { prop1, prop2 } = this.props;
+    const {prop1, prop2} = this.props;
     return (
       <div style={{border: '1px solid #000'}}>
         I WANNA BE a HORIZONTAL RULER! {prop1} {prop2}
@@ -123,7 +125,6 @@ class App extends React.Component {
 
     return (
       <div className="Demo">
-        <Reboot />
         <div className="Demo-head">
           <Typography variant="headline" gutterBottom>
             mark-to-react Live Demo
@@ -134,9 +135,9 @@ class App extends React.Component {
             <RadioGroup
               name="renderer"
               value={this.state.renderer}
-              onChange={this.handleChangeRenderer} >
-              <FormControlLabel value="default" control={<Radio />} label="Default" />
-              <FormControlLabel value="custom" control={<Radio />} label="Custom" />
+              onChange={this.handleChangeRenderer}>
+              <FormControlLabel value="default" control={<Radio/>} label="Default"/>
+              <FormControlLabel value="custom" control={<Radio/>} label="Custom"/>
             </RadioGroup>
           </FormControl>
         </div>
@@ -145,12 +146,12 @@ class App extends React.Component {
           <Typography variant="title" gutterBottom>
             MARKDOWN TEXT:
           </Typography>
-          <Input 
+          <Input
             className="Demo-input-text"
             multiline={true}
             fullWidth={true}
-            type="text" 
-            value={this.state.text} 
+            type="text"
+            value={this.state.text}
             onChange={this.handleChangeText}/>
         </div>
 
@@ -159,7 +160,7 @@ class App extends React.Component {
             RENDERED:
           </Typography>
           <div className="Demo-output-markdown">
-            { useCustomRenderer ? this.renderCustom() : this.renderDefault() }
+            {useCustomRenderer ? this.renderCustom() : this.renderDefault()}
           </div>
         </div>
       </div>
@@ -168,19 +169,19 @@ class App extends React.Component {
 
   renderDefault = () => {
     return (
-      <Markdown 
+      <Markdown
         className="Markdown"
-        text={this.state.text} />
+        text={this.state.text}/>
     );
   }
 
   renderCustom = () => {
     const parsed = customParser.parse(this.state.text);
     const componentMap = {
-      'a': A, 
+      'a': A,
       'codeblock': Codeblock,
-      'toc': Toc, 
-      'toc-item': TocItem, 
+      'toc': Toc,
+      'toc-item': TocItem,
       'my_hr': MyHr
     };
     const componentProps = {
@@ -188,11 +189,11 @@ class App extends React.Component {
     };
 
     return (
-      <Markdown 
+      <Markdown
         className="Markdown"
         parsed={parsed}
-        componentMap={componentMap} 
-        componentProps={componentProps} />
+        componentMap={componentMap}
+        componentProps={componentProps}/>
     );
   }
 

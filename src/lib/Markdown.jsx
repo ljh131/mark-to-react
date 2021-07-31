@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { Parser } from 'mark-to-jsonml';
+import {Parser} from 'mark-to-jsonml';
 
 import * as Components from './components';
 
@@ -36,7 +36,7 @@ const DEFAULT_COMPONENT_MAP = {
   'toc-item': Components.TocItem,
 };
 
-const parser = new Parser();   
+const parser = new Parser();
 
 class Markdown extends React.Component {
   constructor(props) {
@@ -46,11 +46,11 @@ class Markdown extends React.Component {
   render() {
     let elements = this.props.parsed;
 
-    if(!elements) {
+    if (!elements) {
       elements = parser.parse(this.props.text);
     }
 
-    if(elements.length > 0 && elements[0] !== 'markdown') {
+    if (elements.length > 0 && elements[0] !== 'markdown') {
       console.error("jsonml markdown should be start with 'markdown'");
       return null;
     }
@@ -99,10 +99,10 @@ class Markdown extends React.Component {
     const componentProps = this.props.componentProps || {};
 
     const el = componentMap[name] || DEFAULT_COMPONENT_MAP[name] || Components.P;
-    if(!el) return null;
+    if (!el) return null;
     const props = componentProps[name] || {};
 
-    const elProps = Object.assign({}, args, { key: 'md' + seq }, props);
+    const elProps = Object.assign({}, args, {key: 'md' + seq}, props);
     return React.createElement(el, elProps, children);
   };
 
