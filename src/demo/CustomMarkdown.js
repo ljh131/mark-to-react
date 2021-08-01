@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import * as R from 'ramda';
-import Typography from 'material-ui/Typography';
+import Typography from '@material-ui/core/Typography';
 
-import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/dist/light';
-import tomorrowNightEighties from 'react-syntax-highlighter/styles/hljs/tomorrow-night-eighties'; 
+import SyntaxHighlighter, {registerLanguage} from 'react-syntax-highlighter/dist/light';
+import tomorrowNightEighties from 'react-syntax-highlighter/styles/hljs/tomorrow-night-eighties';
 
 import cpp from 'react-syntax-highlighter/dist/languages/hljs/cpp';
 import java from 'react-syntax-highlighter/dist/languages/hljs/java';
@@ -35,11 +35,11 @@ import markdown from 'react-syntax-highlighter/dist/languages/hljs/markdown';
 import nginx from 'react-syntax-highlighter/dist/languages/hljs/nginx';
 
 const langs = {
-  'cpp': cpp, 
-  'java': java, 
-  'js': javascript, 
-  'coffeescript': coffeescript, 
-  'typescript': typescript, 
+  'cpp': cpp,
+  'java': java,
+  'js': javascript,
+  'coffeescript': coffeescript,
+  'typescript': typescript,
   'kotlin': kotlin,
   'swift': swift,
   'go': go,
@@ -68,15 +68,15 @@ class A extends Component {
   render() {
     const url = this.props.src || this.props.href;
 
-    if(/\.(bmp|png|jpg|jpeg|tiff|gif)$/.test(url)) {
+    if (/\.(bmp|png|jpg|jpeg|tiff|gif)$/.test(url)) {
       return (
         <a target='_blank' href={url}>
-          <img src={url} alt={this.props.alt || url} />
+          <img src={url} alt={this.props.alt || url}/>
         </a>
       );
-    } else if(/\.(mp4|ogg)$/.test(url)) { 
+    } else if (/\.(mp4|ogg)$/.test(url)) {
       return (
-        <video src={url} controls />
+        <video src={url} controls/>
       );
     } else {
       return (
@@ -90,21 +90,21 @@ class A extends Component {
 
 class Codeblock extends Component {
   render() {
-    if(this.props.lang) {
+    if (this.props.lang) {
       return (
-        <SyntaxHighlighter 
-          language={this.props.lang || ''} 
-          style={tomorrowNightEighties} 
+        <SyntaxHighlighter
+          language={this.props.lang || ''}
+          style={tomorrowNightEighties}
           customStyle={{padding: '15px'}}
           lineNumberContainerStyle={{float: 'left', paddingRight: '20px'}}
-          showLineNumbers >
+          showLineNumbers>
           {this.props.children[0]}
         </SyntaxHighlighter>
       );
     } else {
       return (
         <pre className='md-code-simple'>
-          <code className='md-code-simple'>{ this.props.children }</code>
+          <code className='md-code-simple'>{this.props.children}</code>
         </pre>
       );
     }
@@ -120,7 +120,7 @@ class Toc extends React.Component {
             Table of Content
           </Typography>
         </div>
-        { this.props.children }
+        {this.props.children}
       </div>
     );
   }

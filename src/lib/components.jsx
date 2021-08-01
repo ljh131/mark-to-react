@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class Markdown extends Component {
   render() {
@@ -7,7 +7,7 @@ class Markdown extends Component {
 
     for (let refName in this.props.references) {
       const ref = this.props.references[refName];
-      refs.push(<p key={ `ref${seq++}` } id={ refName }>[{ refName }] { ref.href }</p>);
+      refs.push(<p key={`ref${seq++}`} id={refName}>[{refName}] {ref.href}</p>);
     }
 
     return (
@@ -27,13 +27,13 @@ class H extends Component {
 
 class Hr extends Component {
   render() {
-    return <hr />;
+    return <hr/>;
   }
 }
 
 class P extends Component {
   render() {
-    return <p>{ this.props.children }</p>;
+    return <p>{this.props.children}</p>;
   }
 }
 
@@ -45,50 +45,50 @@ class Br extends Component {
 
 class Span extends Component {
   render() {
-    return <span>{ this.props.children }</span>;
+    return <span>{this.props.children}</span>;
   }
 }
 
 // FIXME 단순히 이렇게 리턴하는게 많은데 팩토리를 만드는게;
 class Ul extends Component {
   render() {
-    return <ul>{ this.props.children }</ul>;
+    return <ul>{this.props.children}</ul>;
   }
 }
 
 class Li extends Component {
   render() {
-    return <li>{ this.props.children }</li>;
+    return <li>{this.props.children}</li>;
   }
 }
 
 class Ol extends Component {
   render() {
-    return <ol>{ this.props.children }</ol>;
+    return <ol>{this.props.children}</ol>;
   }
 }
 
 class Em extends Component {
   render() {
-    return <em>{ this.props.children }</em>;
+    return <em>{this.props.children}</em>;
   }
 }
 
 class Underline extends Component {
   render() {
-    return <u>{ this.props.children }</u>;
+    return <u>{this.props.children}</u>;
   }
 }
 
 class Strike extends Component {
   render() {
-    return <s>{ this.props.children }</s>;
+    return <s>{this.props.children}</s>;
   }
 }
 
 class Strong extends Component {
   render() {
-    return <strong>{ this.props.children }</strong>;
+    return <strong>{this.props.children}</strong>;
   }
 }
 
@@ -105,7 +105,7 @@ class A extends Component {
 
 class Blockquote extends Component {
   render() {
-    return <blockquote>{ this.props.children }</blockquote>;
+    return <blockquote>{this.props.children}</blockquote>;
   }
 }
 
@@ -113,7 +113,7 @@ class Codeblock extends Component {
   render() {
     return (
       <pre className='md-code-simple'>
-        <code className='md-code-simple'>{ this.props.children }</code>
+        <code className='md-code-simple'>{this.props.children}</code>
       </pre>
     );
   }
@@ -121,43 +121,43 @@ class Codeblock extends Component {
 
 class Inlinecode extends Component {
   render() {
-    return <code className='md-inlinecode'>{ this.props.children }</code>;
+    return <code className='md-inlinecode'>{this.props.children}</code>;
   }
 }
 
 class Table extends Component {
   render() {
-    return <table>{ this.props.children }</table>;
+    return <table>{this.props.children}</table>;
   }
 }
 
 class Thead extends Component {
   render() {
-    return <thead>{ this.props.children }</thead>;
+    return <thead>{this.props.children}</thead>;
   }
 }
 
 class Tbody extends Component {
   render() {
-    return <tbody>{ this.props.children }</tbody>;
+    return <tbody>{this.props.children}</tbody>;
   }
 }
 
 class Tr extends Component {
   render() {
-    return <tr>{ this.props.children }</tr>;
+    return <tr>{this.props.children}</tr>;
   }
 }
 
 class Th extends Component {
   render() {
-    return <th>{ this.props.children }</th>;
+    return <th>{this.props.children}</th>;
   }
 }
 
 class Td extends Component {
   render() {
-    return <td>{ this.props.children }</td>;
+    return <td>{this.props.children}</td>;
   }
 }
 
@@ -165,39 +165,39 @@ class Toc extends Component {
   render() {
     return <div>
       <p>Table of Content</p>
-      { this.props.children }
+      {this.props.children}
     </div>;
   }
 }
 
 class TocItem extends Component {
   render() {
-    return <p>{ this.props.children }</p>;
+    return <p>{this.props.children}</p>;
   }
 }
 
-export { 
-  Markdown,    
+export {
+  Markdown,
   H,
   Hr,
   Br,
   P,
   Span,
-                                      
+
   Ul,
   Ol,
   Li,
-                                      
+
   Strike,
   Strong,
   Em,
   Underline,
   A,
-                                      
+
   Blockquote,
   Codeblock,
   Inlinecode,
-                                      
+
   Table,
   Thead,
   Tbody,
