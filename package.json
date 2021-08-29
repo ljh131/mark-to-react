@@ -1,6 +1,6 @@
 {
   "name": "mark-to-react",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Fully customizable markdown component in React",
   "keywords": [
     "react",
@@ -59,7 +59,7 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "lodash": "^4.17.21",
-    "mark-to-jsonml": "^0.5.1",
+    "mark-to-jsonml": "^0.5.2",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.5",
     "object-assign": "4.1.1",
